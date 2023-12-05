@@ -112,7 +112,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',  opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -240,7 +240,7 @@ require('lazy').setup({
 vim.o.hlsearch = false
 
 -- Make line numbers default
--- vim.wo.number = false
+-- vim.wo.number = 'false'
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -273,11 +273,14 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
+vim.o.number = 'relativenumber'
 vim.o.relativenumber = true
 
-vim.o.tabstop = 1
-vim.o.softtabstop = 1
-vim.o.shiftwidth = 4
+local tab = 2;
+
+vim.o.tabstop = tab
+vim.o.softtabstop = tab
+vim.o.shiftwidth = tab
 vim.o.expandtab = true
 
 vim.o.smartindent = true
@@ -529,7 +532,7 @@ local servers = {
   -- pyright = {},
   -- rust_analyzer = {},
   tsserver = {},
-  html = { filetypes = { 'html', 'twig', 'hbs'} },
+  html = { filetypes = { 'html', 'twig', 'hbs' } },
   tailwindcss = { filetypes = { 'jsx' } },
 
   lua_ls = {
