@@ -1,5 +1,4 @@
 --[[
-
 =====================================================================
 ==================== READ THIS BEFORE CONTINUING ====================
 =====================================================================
@@ -229,7 +228,7 @@ require('lazy').setup({
   --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {})
 
 -- [[ Setting options ]]
@@ -240,7 +239,7 @@ require('lazy').setup({
 vim.o.hlsearch = false
 
 -- Make line numbers default
--- vim.wo.number = 'false'
+vim.wo.number = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -273,7 +272,6 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
-vim.o.number = 'relativenumber'
 vim.o.relativenumber = true
 
 local tab = 2;
@@ -532,8 +530,11 @@ local servers = {
   -- pyright = {},
   -- rust_analyzer = {},
   tsserver = {},
+  htmx = {},
+  taplo = {},
+  marksman = {},
   html = { filetypes = { 'html', 'twig', 'hbs' } },
-  tailwindcss = { filetypes = { 'jsx' } },
+  tailwindcss = { filetypes = { 'html, jsx' } },
 
   lua_ls = {
     Lua = {
