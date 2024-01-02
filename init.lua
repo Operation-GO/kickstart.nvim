@@ -274,7 +274,7 @@ vim.o.termguicolors = true
 
 vim.o.relativenumber = true
 
-local tab = 2;
+local tab = 4;
 
 vim.o.tabstop = tab
 vim.o.softtabstop = tab
