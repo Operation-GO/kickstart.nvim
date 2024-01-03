@@ -391,11 +391,22 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
+    -- Remove warnings
+    sync_install = false,
+    ignore_install = {},
+    modules = {},
+
+    vim.filetype.add({
+      extension = {
+        templ = "templ"
+      }
+    }),
+
     -- Add languages to be installed here that you want installed for treesitter
     ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-    auto_install = false,
+    auto_install = true,
 
     highlight = { enable = true },
     indent = { enable = true },
@@ -524,6 +535,7 @@ require('mason-lspconfig').setup()
 --
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
+local htmlFiletypes = { 'html', 'templ', 'jsx' }
 local servers = {
   -- clangd = {},
   gopls = {},
@@ -531,11 +543,12 @@ local servers = {
   -- pyright = {},
   -- rust_analyzer = {},
   tsserver = {},
-  htmx = {},
+  htmx = { filetypes = htmlFiletypes },
   taplo = {},
   marksman = {},
-  html = { filetypes = { 'html', 'twig', 'hbs' } },
-  tailwindcss = { filetypes = { 'html, jsx' } },
+  -- html = { filetypes = { 'html', 'twig', 'hbs' } },
+  html = { filetypes = htmlFiletypes },
+  tailwindcss = { filetypes = htmlFiletypes },
 
   lua_ls = {
     Lua = {
