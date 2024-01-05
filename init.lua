@@ -396,7 +396,6 @@ vim.defer_fn(function()
     ignore_install = {},
     modules = {},
 
-    vim.filetype.add({ extension = { templ = "templ" } }),
 
     -- Add languages to be installed here that you want installed for treesitter
     ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
@@ -535,7 +534,7 @@ local htmlFiletypes = { 'html', 'templ', 'jsx' }
 local servers = {
   -- clangd = {},
   gopls = {},
-  templ = {},
+  templ = { filetypes = { 'templ', 'go' } },
   -- pyright = {},
   -- rust_analyzer = {},
   tsserver = {},
