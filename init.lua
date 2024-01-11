@@ -309,19 +309,6 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
-vim.o.relativenumber = true
-
-local tab = 4;
-
-vim.o.tabstop = tab
-vim.o.softtabstop = tab
-vim.o.shiftwidth = tab
-vim.o.expandtab = true
-
-vim.o.smartindent = true
-
-vim.o.scrolloff = 8
-
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
@@ -337,8 +324,6 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous dia
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
-
-vim.keymap.set('n', '<leader>on', vim.cmd.Ex, { desc = '[O]pen [N]etrw' })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -446,18 +431,13 @@ vim.defer_fn(function()
     ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-<<<<<<< HEAD
     auto_install = true,
-
-=======
-    auto_install = false,
     -- Install languages synchronously (only applied to `ensure_installed`)
     sync_install = false,
     -- List of parsers to ignore installing
     ignore_install = {},
     -- You can specify additional Treesitter modules here: -- For example: -- playground = {--enable = true,-- },
     modules = {},
->>>>>>> 2510c29d62d39d63bb75f1a613d2ae628a2af4ee
     highlight = { enable = true },
     indent = { enable = true },
     incremental_selection = {
