@@ -446,8 +446,18 @@ vim.defer_fn(function()
     ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
+<<<<<<< HEAD
     auto_install = true,
 
+=======
+    auto_install = false,
+    -- Install languages synchronously (only applied to `ensure_installed`)
+    sync_install = false,
+    -- List of parsers to ignore installing
+    ignore_install = {},
+    -- You can specify additional Treesitter modules here: -- For example: -- playground = {--enable = true,-- },
+    modules = {},
+>>>>>>> 2510c29d62d39d63bb75f1a613d2ae628a2af4ee
     highlight = { enable = true },
     indent = { enable = true },
     incremental_selection = {
